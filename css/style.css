@@ -1,0 +1,10 @@
+
+#updateclick{
+    display: none;
+    margin: 10px;
+}
+.inputs{
+    
+    display: flex;
+    gap: 20px;
+}
