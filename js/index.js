@@ -6,6 +6,9 @@
  var updateclick= document.getElementById("updateclick")
  var btnUpdate = document.getElementById('btnUpdate')
  var searchinput=document.getElementById("searchinput")
+ var validname=document.querySelector(".validname")
+ var validprice=document.querySelector(".validprice")
+ var validdesc=document.querySelector(".validdesc")
 
 
 //  var mood ='create'
@@ -23,14 +26,15 @@
  }
  function addProduct(){
 
-    
-   if(validationName()==true && validationPrice()==true){
-      var product={
-         name:nameInput.value,
-         price:priceInput.value,
-         caregory:categoryInput.value,
-         description:descriptionInput.value
-     }
+   var product={
+      name:nameInput.value,
+      price:priceInput.value,
+      caregory:categoryInput.value,
+      description:descriptionInput.value
+  }
+
+   if(validationName()==true && validationPrice()==true && validDesc()==true) {
+     
  
      arrList.push(product)
     
@@ -42,9 +46,7 @@
      displayProduct (arrList)
      
    }
-   else{
-      alert("enter valid data")
-   }
+   
 // if(mood==='create'){
    //  arrList.push(product)
    // }
@@ -177,18 +179,67 @@ var machedArr=[]
 
 }
 
-
+nameInput.addEventListener("keyup",validationName)
+priceInput.addEventListener("keyup",validationPrice)
+descriptionInput.addEventListener("keyup",validDesc)
 // validation input
 
 function validationName(){
    var regex=/^[A-Z][a-z]{3,10}/
 
-   return regex.test(nameInput.value)
+   if(regex.test(nameInput.value)) {
+      validname.classList.add("d-none")
+      validname.classList.remove("d-block")
+      nameInput.classList.add("is-valid")
+      nameInput.classList.remove("is-invalid")
+      return true
+
+   }
+   else{
+      validname.classList.add("d-block")
+      validname.classList.remove("d-none")
+      nameInput.classList.add("is-invalid")
+      nameInput.classList.remove("is-valid")
+      return false
+   }
 }
 
 function validationPrice(){
    var regex=/^[1-9][0-9]{2,5}$/
-   return regex.test(priceInput.value)
+   if(regex.test(priceInput.value)) {
+      validprice.classList.add("d-none")
+      validprice.classList.remove("d-block")
+      priceInput.classList.add("is-valid")
+      priceInput.classList.remove("is-invalid")
+      return true
+   }
+   else{
+      validprice.classList.add("d-block")
+      validprice.classList.remove("d-none")
+      priceInput.classList.add("is-invalid")
+      priceInput.classList.remove("is-valid")
+      return false
+   }
+}
+
+
+function validDesc(){
+   regex=/^[a-zA-z0-9]{3,20}$/
+   if(regex.test(descriptionInput.value)){
+      validdesc.classList.add("d-none")
+      validdesc.classList.remove("d-block")
+      descriptionInput.classList.add("is-valid")
+      descriptionInput.classList.remove("is-invalid")
+      return true
+
+   }
+   else{
+      validdesc.classList.add("d-block")
+      validdesc.classList.remove("d-none")
+      descriptionInput.classList.add("is-invalid")
+      descriptionInput.classList.remove("is-valid")
+      return false
+   }
 }
 
 

@@ -14,10 +14,12 @@
             <div class="mb-3">
                 <label for="productName">Product Name</label>
                 <input id="productName" type="text" class="form-control mt-1" />
+                <div class="validname d-none alert alert-danger">Enter the first letter in capital, then enter from the next letters up to 15</div>
             </div>
             <div class="mb-3">
                 <label for="productPrice">Product Price</label>
                 <input id="productPrice" type="number" class="form-control mt-1" />
+                <div class="validprice d-none alert alert-danger">enter valid price</div>
             </div>
             <div class="mb-3">
                 <label for="productCategory">Product Category</label>
@@ -32,6 +34,7 @@
             <div class="mb-3">
                 <label for="productDescription">Product Description</label>
                 <textarea class="form-control" id="productDescription"></textarea>
+                <div class="validdesc d-none alert alert-danger">enter description</div>
             </div>
            <div class="inputs">
             <button id="click" onclick="addProduct()" type="button" class="btn d-block btn-outline-primary">Add Product</button>
