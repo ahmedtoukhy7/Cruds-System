@@ -1,4 +1,6 @@
-
+body{
+    background-color: rgba(95, 158, 160, 0.616);
+}
 #updateclick{
     display: none;
     margin: 10px;
